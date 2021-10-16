@@ -1,13 +1,21 @@
-const upScroll = ['ArrowUp', 'PageUp'];
-const downScroll = ['ArrowDown', 'PageDown'];
+const upScroll = ['ArrowUp', 'PageUp', 'ArrowLeft'];
+const downScroll = ['ArrowDown', 'PageDown', 'ArrowRight'];
+
+function keydownArrowDown() {
+  const keyboardEvent = new KeyboardEvent('keydown', {
+    bubbles: true,
+    code: 'ArrowDown',
+  });
+  document.dispatchEvent(keyboardEvent);
+}
 
 window.addEventListener('keydown', (ev) => {
   const { code } = ev;
-  console.log(code);
+  console.trace(ev);
 
   if (code === 'Space') {
     ev.preventDefault();
-    console.log('create ArrowDown key event');
+    keydownArrowDown();
     return;
   }
 
